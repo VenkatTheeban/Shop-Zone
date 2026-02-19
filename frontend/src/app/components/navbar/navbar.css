@@ -1,0 +1,156 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* -------------------------------- */
+/* NAVBAR BASE */
+/* -------------------------------- */
+.navbar {
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+/* -------------------------------- */
+/* SEARCH BAR */
+/* -------------------------------- */
+.search-bar {
+  width: 50%;
+  max-width: 500px;
+  background: #f8f9fa;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  color: #000;
+}
+
+/* -------------------------------- */
+/* NAV LINKS */
+/* -------------------------------- */
+.navbar a {
+  position: relative;
+  color: #333;
+  transition: color 0.25s ease, background-color 0.25s ease;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-weight: 500;
+}
+
+/* Hover effect */
+.navbar a:hover {
+  color: #007bff !important;
+  background-color: rgba(0, 123, 255, 0.08);
+}
+
+/* Underline animation */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.25s ease, left 0.25s ease;
+}
+
+.navbar a:hover::after {
+  width: 50%;
+  left: 25%;
+}
+
+/* Icon animations */
+.navbar i {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.navbar a:hover i {
+  transform: scale(1.15);
+  color: #007bff;
+}
+
+/* -------------------------------- */
+/* BADGES */
+/* -------------------------------- */
+.badge {
+  font-size: 10px;
+  padding: 4px 6px;
+  min-width: 18px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Fix cart badge position */
+.position-relative .badge {
+  top: -6px !important;
+  left: 12px !important;
+}
+
+/* -------------------------------- */
+/* RESPONSIVE */
+/* -------------------------------- */
+@media (max-width: 992px) {
+  .search-bar {
+    width: 70%;
+    margin: 10px auto;
+  }
+
+  .navbar a {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  .badge {
+    top: -5px !important;
+    left: 10px !important;
+  }
+
+  /* more touch-friendly */
+  .navbar a {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-brand {
+    font-size: 18px;
+  }
+
+  .search-bar input {
+    font-size: 13px;
+  }
+}

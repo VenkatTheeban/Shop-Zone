@@ -1,0 +1,73 @@
+<section class="banner-section">
+  <img src="assets/banner1.jpg" class="banner-image" />
+</section>
+
+<main class="container my-5">
+
+  <h2 class="product-title mb-4">Our Products</h2>
+
+  <!-- PRODUCT GRID -->
+  <div *ngIf="filteredProducts && filteredProducts().length > 0"
+       class="product-grid">
+
+    <div class="product-card"
+         *ngFor="let item of filteredProducts()">
+
+      <!-- IMAGE BOX (only this should open detail page) -->
+      <div class="img-box" (click)="openProduct(item.id)">
+        <img [src]="'assets/' + item.image" alt="{{ item.name }}">
+      </div>
+
+      <!-- NAME -->
+      <h4 class="product-name">{{ item.name }}</h4>
+
+      <!-- PRICE -->
+      <p class="price">$ {{ item.price }}</p>
+
+      <!-- ACTION ROWS -->
+      <div class="action-row">
+
+        <!-- ROW 1: ADD TO CART + WISHLIST -->
+        <div class="top-row">
+          <button class="add-cart"
+                  (click)="addToCart(item); $event.stopPropagation()">
+            <i class="fa fa-shopping-cart"></i>
+            Add to Cart
+          </button>
+
+          <button class="wishlist"
+                  (click)="addToWishlist(item); $event.stopPropagation()">
+            <i class="fa fa-heart"></i>
+          </button>
+        </div>
+
+        <!-- ROW 2: BUY NOW -->
+        <button class="buy-full"
+                (click)="buyNow(item); $event.stopPropagation()">
+          <i class="fa fa-bolt"></i>
+          Buy Now
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EMPTY RESULT -->
+  <div *ngIf="filteredProducts && filteredProducts().length === 0"
+       class="text-center py-5">
+    <h3 class="text-muted">No products found</h3>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast-message"></div>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button class="scroll-top"
+          [class.active]="isVisible"
+          (click)="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+</main>

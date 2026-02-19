@@ -1,0 +1,242 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* ---------- VARIABLES ---------- */
+:root {
+  --accent: #007bff;
+  --muted: #6c757d;
+  --card-bg: #fff;
+  --card-border: #e6e6e6;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ---------- BANNER ---------- */
+.banner-section {
+  width: 100%;
+  height: 40vw;
+  max-height: 480px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- TITLE ---------- */
+.product-title {
+  font-weight: 700;
+  color: #222;
+  border-left: 4px solid #333;
+  padding-left: 12px;
+  margin-bottom: 22px;
+  font-size: 28px;
+}
+
+/* ---------- GRID ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- CARD ---------- */
+.product-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 18px;                     /* old UI padding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);  /* old shadow */
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);       /* old hover height */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15); /* old stronger hover shadow */
+}
+
+
+/* ---------- IMAGE BOX ---------- */
+.img-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+
+.product-card:hover .img-box img {
+  transform: scale(1.04);
+}
+
+/* ---------- NAME ---------- */
+.product-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 5px 0 5px 0;   /* fixed spacing */
+}
+
+.product-grid {
+  gap: 28px;
+  padding: 5px;
+}
+
+
+/* ---------- PRICE ---------- */
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;   /* same as old UI */
+}
+
+/* ---------- BUTTON ROW ---------- */
+.action-row {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ADD TO CART */
+.add-cart {
+  flex: 1;
+  height: 46px;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-cart:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* WISHLIST */
+.wishlist {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  border: 1px solid #007bff;
+  background: #fff;
+  color: #007bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.wishlist:hover {
+  background: #007bff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* BUY NOW */
+.buy-full {
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.buy-full:hover {
+  filter: brightness(.94);
+}
+
+/* ---------- TOAST ---------- */
+.toast-message {
+  position: fixed;
+  bottom: 95px;
+  right: 30px;
+  background: #007bff;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: .35s;
+  font-weight: 600;
+  z-index: 99999;
+}
+
+.toast-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0);
+}
+
+/* ---------- SCROLL TO TOP ---------- */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 9999;   /* FIX */
+  pointer-events: auto;  /* FIX */
+}
+
+.scroll-top.active {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,152 @@
+/* Wishlist Title */
+.wishlist-title {
+  font-weight: 700;
+  color: #222;
+  border-left: 4px solid #333;
+  padding-left: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* GRID LAYOUT */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* CARD DESIGN */
+.product-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Card Hover Effect */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Name */
+.product-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Price */
+.product-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* REMOVE BUTTON */
+.cart-btn {
+  background: #ff4d4f;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: 100%;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+/* Remove Hover */
+.cart-btn:hover {
+  background: #d9363e;
+  transform: translateY(-2px);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-card img {
+    height: 130px;
+  }
+}
+
+.toast-message {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  background: #007bff;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+.toast-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+
+/* Button row inside wishlist card */
+.wishlist-btn-row {
+  display: flex;
+  flex-direction: column;   /* Buttons stacked vertically */
+  gap: 10px;                /* Space between buttons */
+  margin-top: 12px;
+}
+
+/* Make both buttons same width + height */
+.wishlist-btn-row .cart-btn,
+.wishlist-btn-row .btn-dark {
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Make ADD TO CART button match REMOVE button style */
+.btn-dark {
+  width: 100%;
+  height: 42px;
+  border-radius: 8px !important;
+  font-weight: 600;
+  background: #000 !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+

@@ -1,0 +1,165 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* ROOT HOST – keep but remove centered blocking */
+:host {
+  display: block;                  /* IMPORTANT FIX */
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #eef2f6, #ffffff);
+  margin: 0;
+  padding: 40px 0;                 /* ensures no blocking overlay */
+  font-family: "Poppins", sans-serif;
+}
+
+/* MAIN CARD */
+.auth-box {
+  width: 900px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  background: #fff;
+  border-radius: 18px;
+  overflow: visible;               /* FIX: prevent overlay clipping */
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease;
+  position: relative;              
+  z-index: 10;                      /* FIX */
+}
+
+/* LEFT SECTION */
+.left {
+  flex: 0.55;
+  padding: 50px 55px;
+  position: relative;              /* FIX */
+  z-index: 20;                     /* FIX */
+}
+
+.left h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.left p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+/* INPUT + ICON */
+.input-box {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  font-size: 15px;
+  color: #666;
+  transform: translateY(-50%);
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 14px 12px 44px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.25s ease;
+  background: #fafafa;
+}
+
+.input-box input:focus {
+  border-color: #007bff;
+  background: #fff;
+}
+
+/* LOGIN / SIGNUP BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  position: relative;
+  z-index: 25;                     /* FIX */
+}
+
+button:hover {
+  background: #0056cc;
+  transform: translateY(-2px);
+}
+
+/* BOTTOM TEXT */
+.bottom-text {
+  margin-top: 25px;
+  color: #444;
+  position: relative;              /* FIX */
+  z-index: 30;                     /* FIX */
+}
+
+.bottom-text a {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;              
+  z-index: 40;                     /* FIX */
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
+}
+
+/* RIGHT WELCOME PANEL */
+.right {
+  flex: 0.45;
+  background: #f7f9fc;
+  border-left: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  position: relative;              
+  z-index: 5;                      /* FIX */
+  pointer-events: none;            /* SUPER IMPORTANT FIX */
+}
+
+.right h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.right p {
+  font-size: 15px;
+  color: #555;
+  max-width: 260px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .auth-box { 
+    flex-direction: column;
+    height: auto;
+  }
+  .right { display: none; }
+  .left { padding: 35px 25px; }
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

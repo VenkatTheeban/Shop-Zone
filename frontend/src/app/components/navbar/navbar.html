@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
+  <div class="container-fluid px-4">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold fs-4 text-dark" routerLink="/">ShopZone🛍️</a>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse justify-content-between" id="mainNav">
+
+      <!-- Search Bar -->
+      <form class="d-flex mx-auto search-bar align-items-center" (submit)="onSearch($event)">
+        <input
+          class="form-control border-0 shadow-none rounded-pill px-3"
+          type="search"
+          placeholder="Search products, brands and more"
+          (input)="onSearchInput($event)"
+        />
+        <button class="btn text-secondary ms-n5" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <!-- Right Icons -->
+      <div class="d-flex align-items-center gap-4">
+
+        <!-- Not Logged In → Show Login -->
+        <a
+          *ngIf="!isLoggedIn()"
+          routerLink="/login"
+          class="text-dark text-decoration-none d-flex align-items-center gap-1"
+        >
+          <i class="fa fa-user fs-5"></i>
+          <span class="fw-semibold">Login</span>
+        </a>
+
+        <!-- Logged In → Show User Dropdown -->
+        <div *ngIf="isLoggedIn()" class="dropdown">
+          <button
+            class="btn btn-link text-dark text-decoration-none d-flex align-items-center gap-1 p-0"
+            type="button"
+            (click)="toggleDropdown()"
+          >
+            <i class="fa fa-user fs-5"></i>
+            <i class="fa fa-chevron-down ms-1"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" [class.show]="dropdownOpen">
+            <li><h6 class="dropdown-header">{{ getUser()?.email }}</h6></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <button class="dropdown-item" (click)="logout()">
+                <i class="fa fa-sign-out-alt me-2"></i>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Wishlist -->
+        <a
+          routerLink="/wishlist"
+          class="text-dark text-decoration-none d-flex align-items-center gap-1 position-relative"
+        >
+          <i class="fa fa-heart fs-5"></i>
+          <span class="fw-semibold">Wishlist</span>
+        </a>
+
+        <!-- Cart -->
+        <a
+          routerLink="/cart"
+          class="text-dark text-decoration-none d-flex align-items-center position-relative gap-1"
+        >
+          <i class="fa fa-shopping-cart fs-5"></i>
+          <span class="fw-semibold">Cart</span>
+
+          <span class="badge bg-primary rounded-circle position-absolute top-0 start-100 translate-middle">
+            {{ cartCount }}
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</nav>

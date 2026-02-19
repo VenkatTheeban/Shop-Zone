@@ -1,0 +1,108 @@
+/* Main Checkout Container */
+.checkout-box {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 30px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Product Image */
+.checkout-img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 10px;
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+}
+
+/* Product Text Styling */
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #198754;
+}
+
+/* Quantity Input */
+input[type="number"] {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Order Button */
+button {
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+/* Total Amount */
+h4 {
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .checkout-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .checkout-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  input[type="number"] {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+.toast-message {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  z-index: 9999;
+  color: white;
+}
+
+/* Success */
+.toast-success {
+  background: #4CAF50;
+}
+
+/* Error */
+.toast-error {
+  background: #E53935;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}

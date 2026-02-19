@@ -1,0 +1,196 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Base layout */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f6f8; /* soft neutral background */
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card container */
+.auth-box {
+  display: flex;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 850px;
+  max-width: 90%;
+  height: 480px;
+  transition: all 0.3s ease;
+  color: #333;
+  position: relative;
+  overflow: visible;
+
+}
+
+/* Left section (Form) */
+.left {
+  flex: 0.55;
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;    
+}
+
+.right {
+  position: relative;
+  z-index: 100;                
+  pointer-events: auto;
+}
+
+
+.left h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.left p {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+
+/* Input fields */
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.input-box i {
+  position: absolute;
+  left: 18px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-box input {
+  width: 100%;
+  max-width: 360px;
+  height: 44px;
+  padding: 0 45px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+.input-box input::placeholder {
+  color: #999;
+}
+
+.input-box input:focus {
+  border-color: #333;
+  background: #fff;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  max-width: 360px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #111;
+}
+
+/* Bottom text */
+.bottom-text {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #666;
+}
+
+.bottom-text a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
+}
+
+/* Right section (Info / Welcome Panel) */
+.right {
+  flex: 0.45;
+  background: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 30px;
+  border-left: 1px solid #eee;
+}
+
+.right h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.right p {
+  font-size: 15px;
+  max-width: 280px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-box {
+    flex-direction: column;
+    width: 90%;
+    border-radius: 10px;
+    height: auto;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left {
+    align-items: center;
+    text-align: center;
+    padding: 35px 25px;
+  }
+
+  .input-box input,
+  .btn {
+    max-width: 100%;
+  }
+}

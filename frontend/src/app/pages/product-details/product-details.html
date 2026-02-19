@@ -1,0 +1,102 @@
+<div class="product-details container my-5" *ngIf="product; else loading">
+
+
+  <div class="details-wrapper">
+
+    <!-- Left: Product Image -->
+    <div class="image-box">
+      
+      <img [src]="'assets/' + product.image" [alt]="product.name">
+
+    </div>
+
+    <!-- Right: Product Info -->
+    <div class="info-box">
+
+      <h2 class="product-title">{{ product.name }}</h2>
+
+      <p class="price">$ {{ product.price }}</p>
+
+      <p class="description">{{ product.description }}</p>
+
+      <!-- Buttons -->
+      <div class="btn-row">
+        <button class="add-cart-btn" (click)="addToCart(product)">
+          <i class="fa fa-shopping-cart"></i> Add to Cart
+        </button>
+
+        <button class="wishlist-btn" (click)="addToWishlist(product)">
+          <i class="fa fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- Specifications -->
+      <div class="specifications mt-4">
+        <h4>Specifications</h4>
+
+        <ul>
+          <li><strong>Brand:</strong> {{ product.brand }}</li>
+          <li><strong>Category:</strong> {{ product.category }}</li>
+
+          <li><strong>Rating:</strong>
+            <span class="rating-stars">⭐ {{ product.rating }}</span>
+          </li>
+
+          <li><strong>Stock Status:</strong>
+            <span [ngClass]="product.stock > 0 ? 'text-success' : 'text-danger'">
+              {{ product.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Reviews -->
+      <div class="reviews mt-4">
+        <h4>Customer Reviews</h4>
+
+        <div *ngIf="product.reviews?.length > 0; else noReviews">
+          <div *ngFor="let review of product.reviews" class="review-box">
+            <p><strong>{{ review.user }}:</strong> {{ review.comment }}</p>
+          </div>
+        </div>
+
+        <ng-template #noReviews>
+          <p class="no-review-text">No reviews yet.</p>
+        </ng-template>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="detail-toast" class="toast-message">Added to wishlist</div>
+
+<!-- Suggested Products Section -->
+<div class="container my-5">
+
+  <h3 class="section-title">You May Also Like</h3>
+
+  <div class="suggested-products">
+
+    <div class="suggest-card"
+         *ngFor="let p of suggestedProducts"
+         (click)="goToDetails(p.id)">
+
+      <img [src]="'assets/' + p.image" alt="product">
+
+      <h5>{{ p.name }}</h5>
+      <p class="price">$ {{ p.price }}</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <div class="text-center py-5">
+    <h3>Loading product...</h3>
+  </div>
+</ng-template>

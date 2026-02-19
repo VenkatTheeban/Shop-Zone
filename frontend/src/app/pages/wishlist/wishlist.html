@@ -1,0 +1,41 @@
+<main class="container my-5">
+
+  <h2 class="wishlist-title mb-4">Your Wishlist</h2>
+
+  <!-- EMPTY WISHLIST -->
+  <div *ngIf="wishlistList().length === 0" class="text-center py-4">
+    <h4>No items in wishlist</h4>
+  </div>
+
+  <!-- GRID -->
+  <div class="product-grid" *ngIf="wishlistList().length > 0">
+
+    <!-- CARD -->
+    <div class="product-card" *ngFor="let item of wishlistList(); let i = index">
+
+      <img [src]="'assets/' + item.image" [alt]="item.name">
+
+
+
+      <h4>{{ item.name }}</h4>
+      <p>${{ item.price }}</p>
+
+      <!-- REMOVE BUTTON -->
+      <button class="cart-btn"
+              (click)="removeItem(i)">
+        Remove
+      </button>
+
+      <!-- ADD TO CART BUTTON -->
+      <button class="btn btn-dark mt-2"
+              (click)="addToCart(item, i)">
+        <i class="fa fa-shopping-cart"></i> Add to Cart
+      </button>
+
+    </div>
+  </div>
+
+  <!-- TOAST MESSAGE -->
+  <div id="toast" class="toast-message"></div>
+
+</main>
